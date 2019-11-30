@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sporty.Web", "Sporty.WebAPI\Sporty.Web.csproj", "{CAEA854B-EE12-40E2-8055-CF437EAF64F1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sporty.Web", "Sporty.Web\Sporty.Web.csproj", "{CAEA854B-EE12-40E2-8055-CF437EAF64F1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sporty.Commons", "Sporty.Commons\Sporty.Commons.csproj", "{9112711D-5461-4323-8373-E51C9FEE0F49}"
 EndProject

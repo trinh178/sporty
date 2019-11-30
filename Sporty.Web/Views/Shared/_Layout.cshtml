@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     @Styles.Render("~/fonts/css")
     @Styles.Render("~/Content/css")
@@ -32,10 +33,29 @@
                 <div class="col-12 col-md-10 d-none d-xl-block">
                     <nav class="site-navigation position-relative text-right" role="navigation">
                         <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
-                            <li class="active"><a href="index.html">Trang chủ</a></li>
-                            <li><a href="blog.html">Dành cho chủ sân</a></li>
-                            <li class="ml-xl-3 login"><a href="login.html"><span class="border-left pl-xl-4"></span>Đăng nhập</a></li>
-                            <li><a href="register.html" class="cta"><span class="bg-primary text-white rounded">Đăng ký</span></a></li>
+                            <li class="active"><a href="@Url.Action("Index", "Home")">Trang chủ</a></li>
+                            <li><a href="#">Dành cho chủ sân</a></li>
+                            @if (Request.IsAuthenticated)
+                            {
+                                <li class="has-children">
+                                    <style>
+                                        .has-children > a::before {
+                                            display: none;
+                                        }
+                                    </style>
+                                    <a href="@Url.Action("Login", "Account")"><span class="border-left pl-xl-4"></span>@User.Identity.Name</a>
+                                    <ul class="dropdown">
+                                        <li><a href="#">Thiết lập tài khoản</a></li>
+                                        <li><a href="@Url.Action("Logout", "Account")">Đăng xuất</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="@Url.Action("ScheduleOrder", "Customer")" class="cta"><span class="bg-primary text-white rounded">Các sân đã đặt</span></a></li>
+                            }
+                            else
+                            {
+                                <li class="ml-xl-3 login"><a href="@Url.Action("Login", "Account")"><span class="border-left pl-xl-4"></span>Đăng nhập</a></li>
+                                <li><a href="@Url.Action("Register", "Account")" class="cta"><span class="bg-primary text-white rounded">Đăng ký</span></a></li>
+                            }
                         </ul>
                     </nav>
                 </div>
@@ -113,10 +133,7 @@
                     <div class="col-md-12">
                         <div class="border-top pt-5">
                             <p>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;
-                                <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy; 2019 All rights reserved
                             </p>
                         </div>
                     </div>

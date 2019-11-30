@@ -1,9 +1,9 @@
-﻿
+﻿@model ListPlaceBindingModel
 
 @{
     ViewBag.Title = "Sporty | Danh sách các sân";
 }
-<div class="site-blocks-cover" style="margin-top: -550px; height: auto;">
+<div class="site-blocks-cover bg-primary" style="margin-top: -550px; height: auto;">
     <div class="container" style="height: auto;">
         <div class="row" style="height: auto;">
             <div class="col-md-12">
@@ -22,234 +22,56 @@
                             <div class="col-lg-12">
 
                                 <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="d-block d-md-flex listing vertical">
-                                            <a href="#" class="img d-block" style="background-image: url('/images/img_2.jpg')"></a>
-                                            <div class="lh-content">
-                                                <h3><a href="#">House with Swimming Pool</a></h3>
-                                                <address>Don St, Brooklyn, New York</address>
-                                                <p class="mb-0">
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-secondary"></span>
-                                                    <span class="review">(3 Reviews)</span>
-                                                </p>
+                                    @if (ViewBag.Places.Count == 0)
+                                    {
+                                        <div class="col-md-12 text-center justify-content-center">
+                                            <h4 class="text-primary">Rất tiếc, không tìm thấy sân nào cả !</h4>
+                                        </div>
+                                    }
+                                    @foreach (PreviewPlaceViewModel p in ViewBag.Places)
+                                    {
+                                        <div class="col-lg-6">
+                                            <div class="d-block d-md-flex listing vertical">
+                                                <a href="@Url.Action("detail", "place", new { id = p.Id })" class="img d-block" style="background-image: url('/images/@p.Images[0]')"></a>
+                                                <div class="lh-content">
+                                                    <h3><a href="#">@p.Name</a></h3>
+                                                    <address>@(p.AddressInfo + ", " + p.AddressDistrict + ", " + p.AddressProvinceCity)</address>
+                                                    <p class="mb-0">
+                                                        <span class="icon-star text-warning"></span>
+                                                        <span class="icon-star text-warning"></span>
+                                                        <span class="icon-star text-warning"></span>
+                                                        <span class="icon-star text-warning"></span>
+                                                        <span class="icon-star text-secondary"></span>
+                                                        <span class="review">(3 Reviews)</span>
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6">
-
-                                        <div class="d-block d-md-flex listing vertical">
-                                            <a href="#" class="img d-block" style="background-image: url('/images/img_2.jpg')"></a>
-                                            <div class="lh-content">
-                                                <span class="category">Real Estate</span>
-                                                <a href="#" class="bookmark"><span class="icon-heart"></span></a>
-                                                <h3><a href="#">House with Swimming Pool</a></h3>
-                                                <address>Don St, Brooklyn, New York</address>
-                                                <p class="mb-0">
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-secondary"></span>
-                                                    <span class="review">(3 Reviews)</span>
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-lg-6">
-
-                                        <div class="d-block d-md-flex listing vertical">
-                                            <a href="#" class="img d-block" style="background-image: url('/images/img_3.jpg')"></a>
-                                            <div class="lh-content">
-                                                <span class="category">Furniture</span>
-                                                <a href="#" class="bookmark"><span class="icon-heart"></span></a>
-                                                <h3><a href="#">Wooden Chair &amp; Table</a></h3>
-                                                <address>Don St, Brooklyn, New York</address>
-                                                <p class="mb-0">
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-secondary"></span>
-                                                    <span class="review">(3 Reviews)</span>
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-lg-6">
-
-                                        <div class="d-block d-md-flex listing vertical">
-                                            <a href="#" class="img d-block" style="background-image: url('/images/img_4.jpg')"></a>
-                                            <div class="lh-content">
-                                                <span class="category">Electronics</span>
-                                                <a href="#" class="bookmark"><span class="icon-heart"></span></a>
-                                                <h3><a href="#">iPhone X gray</a></h3>
-                                                <address>Don St, Brooklyn, New York</address>
-                                                <p class="mb-0">
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-secondary"></span>
-                                                    <span class="review">(3 Reviews)</span>
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-
-                                    <div class="col-lg-6">
-
-                                        <div class="d-block d-md-flex listing vertical">
-                                            <a href="#" class="img d-block" style="background-image: url('/images/img_2.jpg')"></a>
-                                            <div class="lh-content">
-                                                <span class="category">Real Estate</span>
-                                                <a href="#" class="bookmark"><span class="icon-heart"></span></a>
-                                                <h3><a href="#">House with Swimming Pool</a></h3>
-                                                <address>Don St, Brooklyn, New York</address>
-                                                <p class="mb-0">
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-secondary"></span>
-                                                    <span class="review">(3 Reviews)</span>
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-lg-6">
-
-                                        <div class="d-block d-md-flex listing vertical">
-                                            <a href="#" class="img d-block" style="background-image: url('/images/img_3.jpg')"></a>
-                                            <div class="lh-content">
-                                                <span class="category">Furniture</span>
-                                                <a href="#" class="bookmark"><span class="icon-heart"></span></a>
-                                                <h3><a href="#">Wooden Chair &amp; Table</a></h3>
-                                                <address>Don St, Brooklyn, New York</address>
-                                                <p class="mb-0">
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-secondary"></span>
-                                                    <span class="review">(3 Reviews)</span>
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-
-                                    <div class="col-lg-6">
-
-                                        <div class="d-block d-md-flex listing vertical">
-                                            <a href="#" class="img d-block" style="background-image: url('/images/img_1.jpg')"></a>
-                                            <div class="lh-content">
-                                                <span class="category">Cars &amp; Vehicles</span>
-                                                <a href="#" class="bookmark"><span class="icon-heart"></span></a>
-                                                <h3><a href="#">Red Luxury Car</a></h3>
-                                                <address>Don St, Brooklyn, New York</address>
-                                                <p class="mb-0">
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-secondary"></span>
-                                                    <span class="review">(3 Reviews)</span>
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-lg-6">
-
-                                        <div class="d-block d-md-flex listing vertical">
-                                            <a href="#" class="img d-block" style="background-image: url('/images/img_2.jpg')"></a>
-                                            <div class="lh-content">
-                                                <span class="category">Real Estate</span>
-                                                <a href="#" class="bookmark"><span class="icon-heart"></span></a>
-                                                <h3><a href="#">House with Swimming Pool</a></h3>
-                                                <address>Don St, Brooklyn, New York</address>
-                                                <p class="mb-0">
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-secondary"></span>
-                                                    <span class="review">(3 Reviews)</span>
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-lg-6">
-
-                                        <div class="d-block d-md-flex listing vertical">
-                                            <a href="#" class="img d-block" style="background-image: url('/images/img_3.jpg')"></a>
-                                            <div class="lh-content">
-                                                <span class="category">Furniture</span>
-                                                <a href="#" class="bookmark"><span class="icon-heart"></span></a>
-                                                <h3><a href="#">Wooden Chair &amp; Table</a></h3>
-                                                <address>Don St, Brooklyn, New York</address>
-                                                <p class="mb-0">
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-secondary"></span>
-                                                    <span class="review">(3 Reviews)</span>
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-lg-6">
-
-                                        <div class="d-block d-md-flex listing vertical">
-                                            <a href="#" class="img d-block" style="background-image: url('/images/img_4.jpg')"></a>
-                                            <div class="lh-content">
-                                                <span class="category">Electronics</span>
-                                                <a href="#" class="bookmark"><span class="icon-heart"></span></a>
-                                                <h3><a href="#">iPhone X gray</a></h3>
-                                                <address>Don St, Brooklyn, New York</address>
-                                                <p class="mb-0">
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-warning"></span>
-                                                    <span class="icon-star text-secondary"></span>
-                                                    <span class="review">(3 Reviews)</span>
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-
-
-
+                                    }
                                 </div>
 
                                 <div class="col-12 mt-5 text-center">
                                     <div class="custom-pagination">
-                                        <span>1</span>
-                                        <a href="#">2</a>
-                                        <a href="#">3</a>
-                                        <span class="more-page">...</span>
-                                        <a href="#">10</a>
+                                        @if (ViewBag.PagesTotal <= 3)
+                                        {
+                                            for (int i = 0; i < ViewBag.PagesTotal; i++)
+                                            {
+                                                if (i == ViewBag.PageNumb)
+                                                {
+                                                    <span>@(i + 1)</span>
+                                                }
+                                                else
+                                                {
+                                                    <a href="#">@(i + 1)</a>
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            // TODO
+                                        }
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>

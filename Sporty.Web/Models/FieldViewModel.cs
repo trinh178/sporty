@@ -14,6 +14,8 @@ namespace Sporty.Web.Models
         public DateTime CreatedDate { get; set; }
         [JsonProperty("field_type_id")]
         public string FieldTypeId { get; set; }
+        [JsonProperty("field_type_name")]
+        public string FieldTypeName { get; set; }
         [JsonProperty("place_id")]
         public string PlaceId { get; set; }
     }

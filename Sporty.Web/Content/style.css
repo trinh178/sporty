@@ -9,7 +9,6 @@ body {
     color: #4d4d4d;
     font-weight: 400;
     font-size: 1rem;
-    
 }
 
 ::-moz-selection {
@@ -51,7 +50,7 @@ h1, h2, h3, h4, h5,
   -webkit-transition: .3s all ease-in-out;
   -o-transition: .3s all ease-in-out;
   transition: .3s all ease-in-out;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(1, 0, 0, 0.6);
   content: "";
   position: absolute;
   z-index: 2000;
@@ -1885,3 +1884,66 @@ figure figcaption {
         .comment-list li .comment-body .reply:hover {
           color: #000;
           background: #e3e3e3; }
+
+.map-container {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+}
+
+    .map-container iframe {
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+    }
+
+/* HIDE RADIO */
+[type=radio] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* IMAGE STYLES */
+[type=radio] + img {
+    cursor: pointer;
+}
+
+/* CHECKED STYLES */
+[type=radio]:checked + img {
+    outline: 2px solid #f77c14;
+}
+
+#pointerCur {
+    cursor: pointer;
+}
+
+/* Hiding the checkbox, but allowing it to be focused */
+.badgebox {
+    opacity: 0;
+}
+
+.badgebox + .badge {
+    /* Move the check mark away when unchecked */
+    text-indent: -999999px;
+    color: lightblue;
+    /* Makes the badge's width stay the same checked and unchecked */
+    width: 27px;
+}
+
+.badgebox:focus + .badge {
+    /* Set something to make the badge looks focused */
+    /* This really depends on the application, in my case it was: */
+    /* Adding a light border */
+    /* box-shadow: inset 0px 0px 5px; */
+    /* Taking the difference out of the padding */
+}
+
+.badgebox:checked + .badge {
+    /* Move the check mark back when checked */
+    text-indent: 0;
+}

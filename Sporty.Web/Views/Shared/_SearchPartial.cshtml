@@ -10,9 +10,9 @@
         }).Append(new SelectListItem()
         {
             Text = "Tất cả",
-            Value = "All"
+            Value = ""
         }).Reverse();
-    var fieldTypeSelectList = Sporty.DAL.Constants.Data.FieldTypes.OrderBy(s => s)
+    var fieldTypeSelectList = Sporty.DAL.Constants.Data.FieldTypes.OrderByDescending(s => s)
         .Select(m => new SelectListItem()
         {
             Text = m,
@@ -20,7 +20,7 @@
         }).Append(new SelectListItem()
         {
             Text = "Tất cả",
-            Value = "All"
+            Value = ""
         }).Reverse();
 }
 
@@ -40,7 +40,7 @@
             <div class="col-lg-12 mb-4 mb-xl-0 col-xl-3">
                 <div class="select-wrap">
                     <span class="icon"><span class="icon-keyboard_arrow_down"></span></span>
-                    @Html.DropDownListFor(m => m.ProvinceCity, fieldTypeSelectList, new { @class = "form-control rounded" })
+                    @Html.DropDownListFor(m => m.FieldType, fieldTypeSelectList, new { @class = "form-control rounded" })
                 </div>
             </div>
             <div class="col-lg-12 col-xl-2 ml-auto text-right">

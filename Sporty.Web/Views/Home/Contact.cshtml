@@ -5,9 +5,4 @@
 @section cover_content {
     HELLO
 }
-@model ListPlaceBindingModel
-@using (Html.BeginForm("Contact", "Home", FormMethod.Get))
-{
-    @Html.TextBoxFor(m => m.Keyword, new {@placeholder = "Tên hoặc quận huyện" })
-    <input type="submit" value="Search">
-}
+@Html.AntiForgeryToken()
