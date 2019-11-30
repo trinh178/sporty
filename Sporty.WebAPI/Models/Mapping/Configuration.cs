@@ -21,6 +21,8 @@ namespace Sporty.Web.Models.Mapping
                     var arr = JsonConvert.DeserializeObject<string[]>(p.ImagesArray);
                     pvm.Images = arr;
                 });
+                cfg.CreateMap<ScheduleOrder, ScheduleOrderViewModel>()
+                .ForMember(sovm => sovm.Price, otp => otp.Ignore());
                 //cfg.CreateMap<Place, PlaceViewModel>();
                 //cfg.CreateMap<Field, ListPlaceViewModel>();
             });

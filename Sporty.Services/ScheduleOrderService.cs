@@ -23,6 +23,8 @@ namespace Sporty.Services
         float GetPrice(string fieldId, DateTime date, float beginHour, float duration);
 
         DatePriceList GetDatePriceList(string fieldId, DateTime date);
+
+        List<ScheduleOrder> List(string customerId);
     }
 
     public class ScheduleOrderService : IScheduleOrderService
@@ -246,6 +248,16 @@ namespace Sporty.Services
             {
                 throw new ServiceException(ex.Message);
             }
+        }
+
+        public List<ScheduleOrder> List(string customerId)
+        {
+            int total;
+            return _scheduleOrderRepository.GetList(
+                out total, 
+                s => s.CustomerId == customerId,
+                s => s.CreatedDate);
+            //return _scheduleOrderRepository.GetAll().Where(s => s.CustomerId == customerId).ToList();
         }
     }
 }
