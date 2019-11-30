@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
 using Sporty.Services;
 using Sporty.Services.Exceptions;
-using Sporty.WebAPI.Models;
+using Sporty.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Web.Http;
 
-namespace Sporty.WebAPI.API.Controllers
+namespace Sporty.Web.API.Controllers
 {
     [RoutePrefix("api/schedule-order")]
     public class ScheduleOrderController : ApiController

@@ -7,7 +7,7 @@ using System.Web.Http;
 using System.IO;
 using System.Web;
 
-namespace Sporty.WebAPI.API.Controllers
+namespace Sporty.Web.API.Controllers
 {
     public class TestController : ApiController
     {

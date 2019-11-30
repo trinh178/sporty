@@ -1,15 +1,17 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using Sporty.DAL;
 using Sporty.DAL.Models;
-using Sporty.WebAPI.Models;
+using Sporty.Web.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Sporty.WebAPI.Controllers
+namespace Sporty.Web.Controllers
 {
     public class AccountController : Controller
     {
@@ -107,22 +109,45 @@ namespace Sporty.WebAPI.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
+                var user = new ApplicationUser()
                 {
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    Email = model.Email,
+                    UserName = model.Email
+                };
+                try
+                {
+                    using (var dbContext = Request.GetOwinContext().Get<SportyDbContext>())
+                    {
+                        using (var trans = dbContext.Database.BeginTransaction())
+                        {
+                            var result = await UserManager.CreateAsync(user, model.Password);
+                            if (result.Succeeded)
+                            {
+                                result = await UserManager.AddToRoleAsync(user.Id, "Customer");
+                                //result = await UserManager.AddToRole
+                                if (result.Succeeded)
+                                {
+                                    // OK
+                                    trans.Commit();
 
-                    // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                                    return RedirectToAction("Index", "Home");
+                                }
+                            }
 
-                    return RedirectToAction("Index", "Home");
+                            AddErrors(result);
+                            return View(model);
+                        }
+                    }
                 }
-                AddErrors(result);
+                catch (DbEntityValidationException e)
+                {
+                    return View("Error");
+                }
+                catch (Exception e)
+                {
+                    return View("Error");
+                }
             }
 
             // If we got this far, something failed, redisplay form

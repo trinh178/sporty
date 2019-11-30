@@ -11,7 +11,7 @@ using Autofac.Integration.WebApi;
 using Sporty.DAL.Infrastructure;
 using Sporty.Services;
 
-namespace Sporty.WebAPI.DependencyInjection
+namespace Sporty.Web.DependencyInjection
 {
     public class Configuration
     {

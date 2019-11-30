@@ -5,7 +5,7 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 using Sporty.Services;
 
-namespace Sporty.WebAPI.Models
+namespace Sporty.Web.Models
 {
     public class ListPlaceBindingModel
     {

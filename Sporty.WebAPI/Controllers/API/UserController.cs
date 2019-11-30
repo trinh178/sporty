@@ -2,7 +2,7 @@
 using Microsoft.AspNet.Identity.Owin;
 using Sporty.DAL;
 using Sporty.DAL.Models;
-using Sporty.WebAPI.Models.User;
+using Sporty.Web.Models.User;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
@@ -11,9 +11,9 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-using Sporty.WebAPI.Commons.Attributes;
+using Sporty.Web.Commons.Attributes;
 
-namespace Sporty.WebAPI.API.Controllers
+namespace Sporty.Web.API.Controllers
 {
     [RoutePrefix("api/user")]
     [ApplicationAuthorize(Roles = "Customer")]

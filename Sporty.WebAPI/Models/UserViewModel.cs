@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Sporty.WebAPI.Models.User
+namespace Sporty.Web.Models.User
 {
     public class GetAccessTokenViewModel
     {

@@ -10,9 +10,9 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using Sporty.DAL.Models;
-using Sporty.WebAPI.Models;
+using Sporty.Web.Models;
 
-namespace Sporty.WebAPI.Providers
+namespace Sporty.Web.Providers
 {
     public class ApplicationOAuthProvider : OAuthAuthorizationServerProvider
     {

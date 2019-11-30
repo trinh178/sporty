@@ -3,7 +3,7 @@ using Sporty.DAL.Models;
 using System.Linq;
 using Newtonsoft.Json;
 
-namespace Sporty.WebAPI.Models.Mapping
+namespace Sporty.Web.Models.Mapping
 {
     public class Configuration
     {

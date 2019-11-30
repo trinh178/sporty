@@ -7,9 +7,9 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Sporty.DAL;
 using Sporty.DAL.Models;
-using Sporty.WebAPI.Models;
+using Sporty.Web.Models;
 
-namespace Sporty.WebAPI
+namespace Sporty.Web
 {
     // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
 

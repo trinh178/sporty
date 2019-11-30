@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 
-namespace Sporty.WebAPI.Commons.Attributes
+namespace Sporty.Web.Commons.Attributes
 {
     public class ApplicationAuthorizeAttribute : AuthorizeAttribute
     {

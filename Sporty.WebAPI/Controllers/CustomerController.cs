@@ -1,7 +1,7 @@
-﻿using Sporty.WebAPI.Commons.Attributes;
+﻿using Sporty.Web.Commons.Attributes;
 using System.Web.Mvc;
 
-namespace Sporty.WebAPI.Controllers
+namespace Sporty.Web.Controllers
 {
     [Authorize(Roles = "Customer")]
     public class CustomerController : Controller

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Sporty.WebAPI.Controllers
+namespace Sporty.Web.Controllers
 {
     public class HomeController : Controller
     {

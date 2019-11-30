@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace Sporty.WebAPI
+namespace Sporty.Web
 {
     public class FilterConfig
     {

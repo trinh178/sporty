@@ -5,7 +5,7 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
-namespace Sporty.WebAPI.Models
+namespace Sporty.Web.Models
 {
     public class ListFieldBindingModel
     {

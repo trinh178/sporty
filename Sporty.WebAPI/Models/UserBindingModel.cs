@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Sporty.WebAPI.Models.User
+namespace Sporty.Web.Models.User
 {
     public class GetAccessTokenBindingModel
     {

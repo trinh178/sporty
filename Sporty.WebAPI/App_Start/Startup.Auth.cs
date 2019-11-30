@@ -8,13 +8,13 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
-using Sporty.WebAPI.Providers;
-using Sporty.WebAPI.Models;
+using Sporty.Web.Providers;
+using Sporty.Web.Models;
 using Sporty.DAL;
 using Microsoft.AspNet.Identity.Owin;
 using Sporty.DAL.Models;
 
-namespace Sporty.WebAPI
+namespace Sporty.Web
 {
     public partial class Startup
     {

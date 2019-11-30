@@ -13,9 +13,9 @@ using System.Web.Mvc;
 using System.Web.Http;
 using Microsoft.Extensions.DependencyInjection;
 
-[assembly: OwinStartup(typeof(Sporty.WebAPI.Startup))]
+[assembly: OwinStartup(typeof(Sporty.Web.Startup))]
 
-namespace Sporty.WebAPI
+namespace Sporty.Web
 {
     public partial class Startup
     {

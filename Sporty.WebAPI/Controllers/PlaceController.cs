@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Sporty.WebAPI.Models;
+using Sporty.Web.Models;
 using Sporty.Services;
 using AutoMapper;
 using Sporty.DAL.Infrastructure.Exceptions;
 
-namespace Sporty.WebAPI.Controllers
+namespace Sporty.Web.Controllers
 {
     public class PlaceController : Controller
     {

@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace Sporty.WebAPI
+namespace Sporty.Web
 {
     public class BundleConfig
     {

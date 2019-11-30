@@ -6,7 +6,7 @@ using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 
-namespace Sporty.WebAPI
+namespace Sporty.Web
 {
     public static class WebApiConfig
     {

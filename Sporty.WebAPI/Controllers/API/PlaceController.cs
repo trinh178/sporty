@@ -2,14 +2,14 @@
 using Sporty.DAL.Infrastructure.Exceptions;
 using Sporty.DAL.Models;
 using Sporty.Services;
-using Sporty.WebAPI.Models;
+using Sporty.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace Sporty.WebAPI.API.Controllers
+namespace Sporty.Web.API.Controllers
 {
     [RoutePrefix("api/place")]
     public class PlaceController : ApiController
