@@ -1,0 +1,75 @@
+﻿@model RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+@section cover_content {
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8 text-center">
+            <h1>Sign Up</h1>
+            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+        </div>
+    </div>
+}
+
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-7 mb-5 aos-init aos-animate" data-aos="fade">
+
+                <h2 class="mb-5 text-black">Đăng ký</h2>
+
+                @using (Html.BeginForm("Register", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "p-5 bg-white" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="row form-group">
+
+                        <div class="col-md-12">
+                            @Html.LabelFor(m => m.Email, new { @class = "text-black" })
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+
+                        <div class="col-md-12">
+                            @Html.LabelFor(m => m.Password, new { @class = "text-black" })
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+
+                        <div class="col-md-12">
+                            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "text-black" })
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <input type="submit" value="Đăng ký" class="btn btn-primary py-2 px-4 text-white">
+                        </div>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        // Handler for .ready() called.
+        $('html, body').animate({
+            scrollTop: $('.site-section').offset().top
+        }, 'slow');
+    });
+</script>

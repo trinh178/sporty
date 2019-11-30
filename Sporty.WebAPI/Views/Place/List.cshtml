@@ -1,0 +1,82 @@
+﻿@model ListPlaceBindingModel
+
+@{
+    ViewBag.Title = "Sporty | Danh sách các sân";
+}
+<div class="site-blocks-cover bg-primary" style="margin-top: -550px; height: auto;">
+    <div class="container" style="height: auto;">
+        <div class="row" style="height: auto;">
+            <div class="col-md-12">
+                <div class="row justify-content-center mb-4">
+                    <div class="col-md-8 text-center">
+                        <h1 style="font-family: 'VNF-Lobster'" data-aos="fade-up">Chào mừng đến với Sporty</h1>
+                        <p data-aos="fade-up" data-aos-delay="100">Đặt sân nhanh chóng, giá cả phù hợp.</p>
+                    </div>
+                </div>
+                <!--Search bar-->
+                @Html.Partial("_SearchPartial");
+                <!--Listing-->
+                <div class="form-search-wrap mb-0" data-aos="fade-down" data-aos-delay="500">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+
+                                <div class="row">
+                                    @if (ViewBag.Places.Count == 0)
+                                    {
+                                        <div class="col-md-12 text-center justify-content-center">
+                                            <h4 class="text-primary">Rất tiếc, không tìm thấy sân nào cả !</h4>
+                                        </div>
+                                    }
+                                    @foreach (PreviewPlaceViewModel p in ViewBag.Places)
+                                    {
+                                        <div class="col-lg-6">
+                                            <div class="d-block d-md-flex listing vertical">
+                                                <a href="@Url.Action("detail", "place", new { id = p.Id })" class="img d-block" style="background-image: url('/images/@p.Images[0]')"></a>
+                                                <div class="lh-content">
+                                                    <h3><a href="#">@p.Name</a></h3>
+                                                    <address>@(p.AddressInfo + ", " + p.AddressDistrict + ", " + p.AddressProvinceCity)</address>
+                                                    <p class="mb-0">
+                                                        <span class="icon-star text-warning"></span>
+                                                        <span class="icon-star text-warning"></span>
+                                                        <span class="icon-star text-warning"></span>
+                                                        <span class="icon-star text-warning"></span>
+                                                        <span class="icon-star text-secondary"></span>
+                                                        <span class="review">(3 Reviews)</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+
+                                <div class="col-12 mt-5 text-center">
+                                    <div class="custom-pagination">
+                                        @if (ViewBag.PagesTotal <= 3)
+                                        {
+                                            for (int i = 0; i < ViewBag.PagesTotal; i++)
+                                            {
+                                                if (i == ViewBag.PageNumb)
+                                                {
+                                                    <span>@(i + 1)</span>
+                                                }
+                                                else
+                                                {
+                                                    <a href="#">@(i + 1)</a>
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            // TODO
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
